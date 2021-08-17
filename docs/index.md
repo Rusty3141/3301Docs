@@ -1,4 +1,4 @@
-# 3301Docs
+# Home
 
 This is a placeholder page.
 
