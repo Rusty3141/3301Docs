@@ -3,6 +3,9 @@ repo_url: "https://github.com/Rusty3141/3301Docs"
 repo_name: Rusty3141/3301Docs
 edit_uri: "https://github.com/Rusty3141/3301Docs/edit/main/docs"
 theme:
+  features:
+    - search.suggest
+    - search.highlight
   name: material
   logo: assets/images/AnonIcon.png
   favicon: assets/images/AnonIcon.ico
