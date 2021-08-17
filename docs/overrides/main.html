@@ -6,7 +6,18 @@
 {% if git_page_authors %}
 <div class="md-source-date">
     <small>
-        Authors: {{ git_page_authors | default('enable mkdocs-git-authors-plugin') }}
+        {% if git_info.get('page_authors')|length > 1 %}
+        Authors:
+        {% else %}
+        Author:
+        {% endif %}
+        {% if git_info %}
+        {%- for author in git_info.get('page_authors') -%}
+        <span style="color: var(--md-primary-fg-color) !important;">{{ author.name }}</span>{{ ", " if not
+        loop.last
+        else "" }}
+        {%- endfor -%}
+        {% endif %}
     </small>
 </div>
 {% endif %}
