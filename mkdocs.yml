@@ -4,8 +4,11 @@ repo_name: Rusty3141/3301Docs
 edit_uri: "https://github.com/Rusty3141/3301Docs/edit/main/docs"
 theme:
   features:
+    - navigation.tabs
+    - navigation.top
     - search.suggest
     - search.highlight
+    - toc.integrate
   name: material
   logo: assets/images/AnonIcon.png
   favicon: assets/images/AnonIcon.ico
@@ -35,14 +38,35 @@ extra:
     - icon: fontawesome/brands/discord
       link: "https://discordapp.com/invite/83qGbPA"
       name: CicadaSolvers on Discord
+extra_css:
+  - stylesheets/extra.css
+extra_javascript:
+  - javascript/config.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 plugins:
+  - git-authors:
+      fallback_to_empty: false
   - search
   - git-revision-date-localized:
       type: timeago
+      enable_creation_date: true
   - minify:
       minify_html: true
       minify_js: true
       htmlmin_opts:
         remove_comments: true
 markdown_extensions:
+  - abbr
   - admonition
+  - footnotes
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - toc:
+      permalink: true
