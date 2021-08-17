@@ -10,6 +10,7 @@ theme:
     - search.highlight
     - toc.integrate
   name: material
+  custom_dir: docs/overrides
   logo: assets/images/AnonIcon.png
   favicon: assets/images/AnonIcon.ico
   font:
@@ -38,6 +39,7 @@ extra:
     - icon: fontawesome/brands/discord
       link: "https://discordapp.com/invite/83qGbPA"
       name: CicadaSolvers on Discord
+copyright: Site content under the <a href="https://github.com/Rusty3141/3301Docs/blob/main/LICENSE" target="_blank" rel="noopener">GPL-3.0 License</a>
 extra_css:
   - stylesheets/extra.css
 extra_javascript:
