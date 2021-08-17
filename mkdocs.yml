@@ -1,0 +1,37 @@
+site_name: 3301Docs
+repo_url: "https://github.com/Rusty3141/3301Docs"
+repo_name: Rusty3141/3301Docs
+edit_uri: "https://github.com/Rusty3141/3301Docs/edit/main/docs"
+theme:
+  name: material
+  logo: assets/images/AnonIcon.png
+  favicon: assets/images/AnonIcon.ico
+  font:
+    text: Work Sans
+    code: Source Code Pro
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: cyan
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to the dark theme.
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: cyan
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to the light theme.
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: "https://github.com/Rusty3141/3301Docs"
+      name: 3301Docs on Github
+    - icon: fontawesome/brands/discord
+      link: "https://discordapp.com/invite/83qGbPA"
+      name: CicadaSolvers on Discord
+markdown_extensions:
+  - admonition
