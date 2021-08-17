@@ -25,7 +25,6 @@ theme:
         icon: material/weather-sunny
         name: Switch to the light theme.
 extra:
-  generator: false
   social:
     - icon: fontawesome/brands/github
       link: "https://github.com/Rusty3141/3301Docs"
@@ -33,5 +32,14 @@ extra:
     - icon: fontawesome/brands/discord
       link: "https://discordapp.com/invite/83qGbPA"
       name: CicadaSolvers on Discord
+plugins:
+  - search
+  - git-revision-date-localized:
+      type: timeago
+  - minify:
+      minify_html: true
+      minify_js: true
+      htmlmin_opts:
+        remove_comments: true
 markdown_extensions:
   - admonition
