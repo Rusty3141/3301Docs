@@ -20,3 +20,13 @@
   -webkit-mask-image: var(--md-admonition-icon--image);
   mask-image: var(--md-admonition-icon--image);
 }
+
+.lightgallery-item {
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.lightgallery-item:hover {
+  -webkit-filter: brightness(90%);
+  filter: brightness(90%)
+}
