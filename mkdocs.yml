@@ -4,6 +4,7 @@ repo_name: Rusty3141/3301Docs
 edit_uri: "https://github.com/Rusty3141/3301Docs/edit/main/docs"
 theme:
   features:
+    - navigation.instant
     - navigation.tabs
     - navigation.top
     - search.suggest
