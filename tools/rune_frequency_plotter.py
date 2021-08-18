@@ -20,6 +20,8 @@ def main():
 
             fm.fontManager.ttflist.append(
                 fm.FontEntry(fname="C:/Windows/Fonts/cmunrm.ttf", name="Computer Modern Serif"))
+            fm.fontManager.ttflist.append(
+                fm.FontEntry(fname="C:/Windows/Fonts/seguihis.ttf", name="Segoe UI Historic"))  # This font must support runic characters.
 
             plt.rcParams["figure.figsize"] = [16, 9]
             plt.rcParams["figure.dpi"] = 240
@@ -27,6 +29,9 @@ def main():
             plt.rcParams["font.family"] = "Computer Modern Serif"
             plt.rcParams['axes.unicode_minus'] = False
             plt.plot(sorted(frequencyData.values(), reverse=True))
+            plt.scatter(sorted(frequencyData.keys(), key=lambda x: frequencyData[x], reverse=True),
+                        sorted(frequencyData.values(), reverse=True))
+            plt.xticks(fontname="Segoe UI Historic")
             plt.title(
                 f"Rune frequencies in section {part}-{sectionPath.split('.')[0].zfill(2)}, sorted from most to least common")
             plt.ylabel(
