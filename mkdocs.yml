@@ -64,7 +64,8 @@ markdown_extensions:
   - admonition
   - attr_list
   - footnotes
-  - lightgallery
+  - lightgallery:
+      show_description_in_lightgallery: false
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.details
