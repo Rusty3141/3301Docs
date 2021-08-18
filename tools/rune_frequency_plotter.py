@@ -1,11 +1,25 @@
 import os
+import matplotlib
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
+from matplotlib.ticker import (MultipleLocator, AutoMinorLocator)
 
 
 def main():
     runebet = "ᚠᚢᚦᚩᚱᚳᚷᚹᚻᚾᛁᛄᛇᛈᛉᛋᛏᛒᛖᛗᛚᛝᛟᛞᚪᚫᚣᛡᛠ"
-    partsDirectory = "raw-data/"
+    partsDirectory = os.path.join(os.path.dirname(__file__), "../raw-data/")
+
+    plt.rcParams["figure.figsize"] = [16, 9]
+    plt.rcParams["figure.dpi"] = 160
+    plt.rcParams["font.size"] = 20
+    plt.rcParams["font.family"] = "Computer Modern Serif"
+    plt.rcParams['axes.unicode_minus'] = False
+
+    fm.fontManager.ttflist.append(
+        fm.FontEntry(fname="C:/Windows/Fonts/cmunrm.ttf", name="Computer Modern Serif"))
+    # This font must support runic characters.
+    fm.fontManager.ttflist.append(fm.FontEntry(
+        fname="C:/Windows/Fonts/seguihis.ttf", name="Segoe UI Historic"))
 
     for part in os.listdir(partsDirectory):
         for i, sectionPath in enumerate(os.listdir(os.path.join(partsDirectory, part))):
@@ -18,28 +32,27 @@ def main():
                     if char in frequencyData:
                         frequencyData[char] += 1
 
-            fm.fontManager.ttflist.append(
-                fm.FontEntry(fname="C:/Windows/Fonts/cmunrm.ttf", name="Computer Modern Serif"))
-            fm.fontManager.ttflist.append(
-                fm.FontEntry(fname="C:/Windows/Fonts/seguihis.ttf", name="Segoe UI Historic"))  # This font must support runic characters.
+            # Force integral values on y-axis ticks.
+            plt.figure().gca().yaxis.get_major_locator().set_params(integer=True)
 
-            plt.rcParams["figure.figsize"] = [16, 9]
-            plt.rcParams["figure.dpi"] = 240
-            plt.rcParams["font.size"] = 20
-            plt.rcParams["font.family"] = "Computer Modern Serif"
-            plt.rcParams['axes.unicode_minus'] = False
+            plt.gca().set_axisbelow(True)
+            plt.gca().yaxis.set_minor_locator(MultipleLocator(1))
+            plt.grid(True, which="both", alpha=0.4)
+
+            plt.margins(x=0.02)
+
             plt.plot(sorted(frequencyData.values(), reverse=True))
             plt.scatter(sorted(frequencyData.keys(), key=lambda x: frequencyData[x], reverse=True),
                         sorted(frequencyData.values(), reverse=True))
             plt.xticks(fontname="Segoe UI Historic")
-            plt.title(
-                f"Rune frequencies in section {part}-{sectionPath.split('.')[0].zfill(2)}, sorted from most to least common")
+            plt.gca().set_title(
+                f"Rune frequencies in section {part}_{sectionPath.split('.')[0].zfill(2)}.txt, sorted from most to least common", pad=22)
             plt.ylabel(
-                "Rune occurrences in section")
+                "Frequency")
             plt.tight_layout()
-            # plt.subplots_adjust(top=0.72)
-            plt.savefig(
-                f"docs/assets/images/LP/frequency-data/{part}/relative-rune-frequencies-{sectionPath.split('.')[0].zfill(2)}.png")
+
+            plt.savefig(os.path.join(os.path.dirname(
+                __file__), f"../docs/assets/images/LP/frequency-data/{part}/relative-rune-frequencies-{sectionPath.split('.')[0].zfill(2)}.png"))
             plt.clf()
             plt.cla()
             print(

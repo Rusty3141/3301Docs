@@ -1,6 +1,6 @@
 # Part Two
 
-![!Frequency Data for LP2 Section 00](./../../assets/images/LP/frequency-data/LP2/relative-rune-frequencies-00.png){ width=450, loading=lazy }
+![!Frequency Data for LP2 Section 00](./../../assets/images/LP/frequency-data/LP2/relative-rune-frequencies-00.png){ width=900, loading=lazy }
 ![!Frequency Data for LP2 Section 01](./../../assets/images/LP/frequency-data/LP2/relative-rune-frequencies-01.png){ width=450, loading=lazy }
 ![!Frequency Data for LP2 Section 02](./../../assets/images/LP/frequency-data/LP2/relative-rune-frequencies-02.png){ width=450, loading=lazy }
 ![!Frequency Data for LP2 Section 03](./../../assets/images/LP/frequency-data/LP2/relative-rune-frequencies-03.png){ width=450, loading=lazy }
