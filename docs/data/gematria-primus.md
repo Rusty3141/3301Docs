@@ -33,4 +33,5 @@
     |   ᛡ   |  27   |  107  |  \[IA\]   |
     |   ᛠ   |  28   |  109  |  \[EA\]   |
 
-    Alternatively, view in [image form](/assets/images/gematria-primus.jpg).
+??? image "Alternatively, view in image form"
+    ![Gematria Primus](./../assets/images/gematria-primus.jpg)
