@@ -61,7 +61,9 @@ plugins:
 markdown_extensions:
   - abbr
   - admonition
+  - attr_list
   - footnotes
+  - lightgallery
   - pymdownx.arithmatex:
       generic: true
   - pymdownx.details

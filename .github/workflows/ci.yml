@@ -18,4 +18,5 @@ jobs:
       - run: pip install mkdocs-material
       - run: pip install mkdocs-minify-plugin
       - run: pip install mkdocs-git-authors-plugin
+      - run: py plugins/lightgallery-multi-image/setup.py install
       - run: mkdocs gh-deploy --force
