@@ -18,5 +18,7 @@ jobs:
       - run: pip install mkdocs-material
       - run: pip install mkdocs-minify-plugin
       - run: pip install mkdocs-git-authors-plugin
-      - run: python plugins/lightgallery-multi-image/setup.py install
+      - name: Install custom lightGallery version
+        working-directory: ./plugins/lightgallery-multi-image
+        run: python setup.py install
       - run: mkdocs gh-deploy --force
