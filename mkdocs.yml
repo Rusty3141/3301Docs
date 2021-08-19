@@ -11,7 +11,7 @@ theme:
     - search.highlight
     - toc.integrate
   name: material
-  custom_dir: docs/overrides
+  custom_dir: overrides
   logo: assets/images/AnonIcon.png
   favicon: assets/images/AnonIcon.ico
   font:

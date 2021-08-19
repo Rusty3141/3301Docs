@@ -17,3 +17,5 @@
 ![!LP1 Page 14](./../../assets/images/LP/LP1_14.jpg "LP1 Page 14"){ width=300, loading=lazy }
 ![!LP1 Page 15](./../../assets/images/LP/LP1_15.jpg "LP1 Page 15"){ width=300, loading=lazy }
 ![!LP1 Page 16](./../../assets/images/LP/LP1_16.jpg "LP1 Page 16"){ width=300, loading=lazy }
+
+--8<-- "inclusions/abbreviations.md"

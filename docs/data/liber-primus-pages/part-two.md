@@ -58,3 +58,5 @@
 ![!LP2 Page 55](./../../assets/images/LP/LP2_55.jpg "LP2 Page 55"){ width=300, loading=lazy }
 ![!LP2 Page 56](./../../assets/images/LP/LP2_56.jpg "LP2 Page 56"){ width=300, loading=lazy }
 ![!LP2 Page 57](./../../assets/images/LP/LP2_57.jpg "LP2 Page 57"){ width=300, loading=lazy }
+
+--8<-- "inclusions/abbreviations.md"

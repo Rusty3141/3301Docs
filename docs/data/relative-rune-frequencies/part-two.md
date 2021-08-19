@@ -18,3 +18,5 @@
 ![!Frequency Data for LP2 Section 15](./../../assets/images/LP/frequency-data/LP2/relative-rune-frequencies-section-15.png "Frequency Data for LP2 Section 15"){ width=450, loading=lazy }
 
 The raw data can be found [here](./../../assets/images/LP/frequency-data/raw-data.json).
+
+--8<-- "inclusions/abbreviations.md"
