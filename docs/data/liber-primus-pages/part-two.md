@@ -1,60 +1,60 @@
 # Part Two
 
-![!LP2 Page 00](./../../assets/images/LP/LP2_00.jpg){ width=300, loading=lazy }
-![!LP2 Page 01](./../../assets/images/LP/LP2_01.jpg){ width=300, loading=lazy }
-![!LP2 Page 02](./../../assets/images/LP/LP2_02.jpg){ width=300, loading=lazy }
-![!LP2 Page 03](./../../assets/images/LP/LP2_03.jpg){ width=300, loading=lazy }
-![!LP2 Page 04](./../../assets/images/LP/LP2_04.jpg){ width=300, loading=lazy }
-![!LP2 Page 05](./../../assets/images/LP/LP2_05.jpg){ width=300, loading=lazy }
-![!LP2 Page 06](./../../assets/images/LP/LP2_06.jpg){ width=300, loading=lazy }
-![!LP2 Page 07](./../../assets/images/LP/LP2_07.jpg){ width=300, loading=lazy }
-![!LP2 Page 08](./../../assets/images/LP/LP2_08.jpg){ width=300, loading=lazy }
-![!LP2 Page 09](./../../assets/images/LP/LP2_09.jpg){ width=300, loading=lazy }
-![!LP2 Page 10](./../../assets/images/LP/LP2_10.jpg){ width=300, loading=lazy }
-![!LP2 Page 11](./../../assets/images/LP/LP2_11.jpg){ width=300, loading=lazy }
-![!LP2 Page 12](./../../assets/images/LP/LP2_12.jpg){ width=300, loading=lazy }
-![!LP2 Page 13](./../../assets/images/LP/LP2_13.jpg){ width=300, loading=lazy }
-![!LP2 Page 14](./../../assets/images/LP/LP2_14.jpg){ width=300, loading=lazy }
-![!LP2 Page 15](./../../assets/images/LP/LP2_15.jpg){ width=300, loading=lazy }
-![!LP2 Page 16](./../../assets/images/LP/LP2_16.jpg){ width=300, loading=lazy }
-![!LP2 Page 17](./../../assets/images/LP/LP2_17.jpg){ width=300, loading=lazy }
-![!LP2 Page 18](./../../assets/images/LP/LP2_18.jpg){ width=300, loading=lazy }
-![!LP2 Page 19](./../../assets/images/LP/LP2_19.jpg){ width=300, loading=lazy }
-![!LP2 Page 20](./../../assets/images/LP/LP2_20.jpg){ width=300, loading=lazy }
-![!LP2 Page 21](./../../assets/images/LP/LP2_21.jpg){ width=300, loading=lazy }
-![!LP2 Page 22](./../../assets/images/LP/LP2_22.jpg){ width=300, loading=lazy }
-![!LP2 Page 23](./../../assets/images/LP/LP2_23.jpg){ width=300, loading=lazy }
-![!LP2 Page 24](./../../assets/images/LP/LP2_24.jpg){ width=300, loading=lazy }
-![!LP2 Page 25](./../../assets/images/LP/LP2_25.jpg){ width=300, loading=lazy }
-![!LP2 Page 26](./../../assets/images/LP/LP2_26.jpg){ width=300, loading=lazy }
-![!LP2 Page 27](./../../assets/images/LP/LP2_27.jpg){ width=300, loading=lazy }
-![!LP2 Page 28](./../../assets/images/LP/LP2_28.jpg){ width=300, loading=lazy }
-![!LP2 Page 29](./../../assets/images/LP/LP2_29.jpg){ width=300, loading=lazy }
-![!LP2 Page 30](./../../assets/images/LP/LP2_30.jpg){ width=300, loading=lazy }
-![!LP2 Page 31](./../../assets/images/LP/LP2_31.jpg){ width=300, loading=lazy }
-![!LP2 Page 32](./../../assets/images/LP/LP2_32.jpg){ width=300, loading=lazy }
-![!LP2 Page 33](./../../assets/images/LP/LP2_33.jpg){ width=300, loading=lazy }
-![!LP2 Page 34](./../../assets/images/LP/LP2_34.jpg){ width=300, loading=lazy }
-![!LP2 Page 35](./../../assets/images/LP/LP2_35.jpg){ width=300, loading=lazy }
-![!LP2 Page 36](./../../assets/images/LP/LP2_36.jpg){ width=300, loading=lazy }
-![!LP2 Page 37](./../../assets/images/LP/LP2_37.jpg){ width=300, loading=lazy }
-![!LP2 Page 38](./../../assets/images/LP/LP2_38.jpg){ width=300, loading=lazy }
-![!LP2 Page 39](./../../assets/images/LP/LP2_39.jpg){ width=300, loading=lazy }
-![!LP2 Page 40](./../../assets/images/LP/LP2_40.jpg){ width=300, loading=lazy }
-![!LP2 Page 41](./../../assets/images/LP/LP2_41.jpg){ width=300, loading=lazy }
-![!LP2 Page 42](./../../assets/images/LP/LP2_42.jpg){ width=300, loading=lazy }
-![!LP2 Page 43](./../../assets/images/LP/LP2_43.jpg){ width=300, loading=lazy }
-![!LP2 Page 44](./../../assets/images/LP/LP2_44.jpg){ width=300, loading=lazy }
-![!LP2 Page 45](./../../assets/images/LP/LP2_45.jpg){ width=300, loading=lazy }
-![!LP2 Page 46](./../../assets/images/LP/LP2_46.jpg){ width=300, loading=lazy }
-![!LP2 Page 47](./../../assets/images/LP/LP2_47.jpg){ width=300, loading=lazy }
-![!LP2 Page 48](./../../assets/images/LP/LP2_48.jpg){ width=300, loading=lazy }
-![!LP2 Page 49](./../../assets/images/LP/LP2_49.jpg){ width=300, loading=lazy }
-![!LP2 Page 50](./../../assets/images/LP/LP2_50.jpg){ width=300, loading=lazy }
-![!LP2 Page 51](./../../assets/images/LP/LP2_51.jpg){ width=300, loading=lazy }
-![!LP2 Page 52](./../../assets/images/LP/LP2_52.jpg){ width=300, loading=lazy }
-![!LP2 Page 53](./../../assets/images/LP/LP2_53.jpg){ width=300, loading=lazy }
-![!LP2 Page 54](./../../assets/images/LP/LP2_54.jpg){ width=300, loading=lazy }
-![!LP2 Page 55](./../../assets/images/LP/LP2_55.jpg){ width=300, loading=lazy }
-![!LP2 Page 56](./../../assets/images/LP/LP2_56.jpg){ width=300, loading=lazy }
-![!LP2 Page 57](./../../assets/images/LP/LP2_57.jpg){ width=300, loading=lazy }
+![!LP2 Page 00](./../../assets/images/LP/LP2_00.jpg "LP2 Page 00"){ width=300, loading=lazy }
+![!LP2 Page 01](./../../assets/images/LP/LP2_01.jpg "LP2 Page 01"){ width=300, loading=lazy }
+![!LP2 Page 02](./../../assets/images/LP/LP2_02.jpg "LP2 Page 02"){ width=300, loading=lazy }
+![!LP2 Page 03](./../../assets/images/LP/LP2_03.jpg "LP2 Page 03"){ width=300, loading=lazy }
+![!LP2 Page 04](./../../assets/images/LP/LP2_04.jpg "LP2 Page 04"){ width=300, loading=lazy }
+![!LP2 Page 05](./../../assets/images/LP/LP2_05.jpg "LP2 Page 05"){ width=300, loading=lazy }
+![!LP2 Page 06](./../../assets/images/LP/LP2_06.jpg "LP2 Page 06"){ width=300, loading=lazy }
+![!LP2 Page 07](./../../assets/images/LP/LP2_07.jpg "LP2 Page 07"){ width=300, loading=lazy }
+![!LP2 Page 08](./../../assets/images/LP/LP2_08.jpg "LP2 Page 08"){ width=300, loading=lazy }
+![!LP2 Page 09](./../../assets/images/LP/LP2_09.jpg "LP2 Page 09"){ width=300, loading=lazy }
+![!LP2 Page 10](./../../assets/images/LP/LP2_10.jpg "LP2 Page 10"){ width=300, loading=lazy }
+![!LP2 Page 11](./../../assets/images/LP/LP2_11.jpg "LP2 Page 11"){ width=300, loading=lazy }
+![!LP2 Page 12](./../../assets/images/LP/LP2_12.jpg "LP2 Page 12"){ width=300, loading=lazy }
+![!LP2 Page 13](./../../assets/images/LP/LP2_13.jpg "LP2 Page 13"){ width=300, loading=lazy }
+![!LP2 Page 14](./../../assets/images/LP/LP2_14.jpg "LP2 Page 14"){ width=300, loading=lazy }
+![!LP2 Page 15](./../../assets/images/LP/LP2_15.jpg "LP2 Page 15"){ width=300, loading=lazy }
+![!LP2 Page 16](./../../assets/images/LP/LP2_16.jpg "LP2 Page 16"){ width=300, loading=lazy }
+![!LP2 Page 17](./../../assets/images/LP/LP2_17.jpg "LP2 Page 17"){ width=300, loading=lazy }
+![!LP2 Page 18](./../../assets/images/LP/LP2_18.jpg "LP2 Page 18"){ width=300, loading=lazy }
+![!LP2 Page 19](./../../assets/images/LP/LP2_19.jpg "LP2 Page 19"){ width=300, loading=lazy }
+![!LP2 Page 20](./../../assets/images/LP/LP2_20.jpg "LP2 Page 20"){ width=300, loading=lazy }
+![!LP2 Page 21](./../../assets/images/LP/LP2_21.jpg "LP2 Page 21"){ width=300, loading=lazy }
+![!LP2 Page 22](./../../assets/images/LP/LP2_22.jpg "LP2 Page 22"){ width=300, loading=lazy }
+![!LP2 Page 23](./../../assets/images/LP/LP2_23.jpg "LP2 Page 23"){ width=300, loading=lazy }
+![!LP2 Page 24](./../../assets/images/LP/LP2_24.jpg "LP2 Page 24"){ width=300, loading=lazy }
+![!LP2 Page 25](./../../assets/images/LP/LP2_25.jpg "LP2 Page 25"){ width=300, loading=lazy }
+![!LP2 Page 26](./../../assets/images/LP/LP2_26.jpg "LP2 Page 26"){ width=300, loading=lazy }
+![!LP2 Page 27](./../../assets/images/LP/LP2_27.jpg "LP2 Page 27"){ width=300, loading=lazy }
+![!LP2 Page 28](./../../assets/images/LP/LP2_28.jpg "LP2 Page 28"){ width=300, loading=lazy }
+![!LP2 Page 29](./../../assets/images/LP/LP2_29.jpg "LP2 Page 29"){ width=300, loading=lazy }
+![!LP2 Page 30](./../../assets/images/LP/LP2_30.jpg "LP2 Page 30"){ width=300, loading=lazy }
+![!LP2 Page 31](./../../assets/images/LP/LP2_31.jpg "LP2 Page 31"){ width=300, loading=lazy }
+![!LP2 Page 32](./../../assets/images/LP/LP2_32.jpg "LP2 Page 32"){ width=300, loading=lazy }
+![!LP2 Page 33](./../../assets/images/LP/LP2_33.jpg "LP2 Page 33"){ width=300, loading=lazy }
+![!LP2 Page 34](./../../assets/images/LP/LP2_34.jpg "LP2 Page 34"){ width=300, loading=lazy }
+![!LP2 Page 35](./../../assets/images/LP/LP2_35.jpg "LP2 Page 35"){ width=300, loading=lazy }
+![!LP2 Page 36](./../../assets/images/LP/LP2_36.jpg "LP2 Page 36"){ width=300, loading=lazy }
+![!LP2 Page 37](./../../assets/images/LP/LP2_37.jpg "LP2 Page 37"){ width=300, loading=lazy }
+![!LP2 Page 38](./../../assets/images/LP/LP2_38.jpg "LP2 Page 38"){ width=300, loading=lazy }
+![!LP2 Page 39](./../../assets/images/LP/LP2_39.jpg "LP2 Page 39"){ width=300, loading=lazy }
+![!LP2 Page 40](./../../assets/images/LP/LP2_40.jpg "LP2 Page 40"){ width=300, loading=lazy }
+![!LP2 Page 41](./../../assets/images/LP/LP2_41.jpg "LP2 Page 41"){ width=300, loading=lazy }
+![!LP2 Page 42](./../../assets/images/LP/LP2_42.jpg "LP2 Page 42"){ width=300, loading=lazy }
+![!LP2 Page 43](./../../assets/images/LP/LP2_43.jpg "LP2 Page 43"){ width=300, loading=lazy }
+![!LP2 Page 44](./../../assets/images/LP/LP2_44.jpg "LP2 Page 44"){ width=300, loading=lazy }
+![!LP2 Page 45](./../../assets/images/LP/LP2_45.jpg "LP2 Page 45"){ width=300, loading=lazy }
+![!LP2 Page 46](./../../assets/images/LP/LP2_46.jpg "LP2 Page 46"){ width=300, loading=lazy }
+![!LP2 Page 47](./../../assets/images/LP/LP2_47.jpg "LP2 Page 47"){ width=300, loading=lazy }
+![!LP2 Page 48](./../../assets/images/LP/LP2_48.jpg "LP2 Page 48"){ width=300, loading=lazy }
+![!LP2 Page 49](./../../assets/images/LP/LP2_49.jpg "LP2 Page 49"){ width=300, loading=lazy }
+![!LP2 Page 50](./../../assets/images/LP/LP2_50.jpg "LP2 Page 50"){ width=300, loading=lazy }
+![!LP2 Page 51](./../../assets/images/LP/LP2_51.jpg "LP2 Page 51"){ width=300, loading=lazy }
+![!LP2 Page 52](./../../assets/images/LP/LP2_52.jpg "LP2 Page 52"){ width=300, loading=lazy }
+![!LP2 Page 53](./../../assets/images/LP/LP2_53.jpg "LP2 Page 53"){ width=300, loading=lazy }
+![!LP2 Page 54](./../../assets/images/LP/LP2_54.jpg "LP2 Page 54"){ width=300, loading=lazy }
+![!LP2 Page 55](./../../assets/images/LP/LP2_55.jpg "LP2 Page 55"){ width=300, loading=lazy }
+![!LP2 Page 56](./../../assets/images/LP/LP2_56.jpg "LP2 Page 56"){ width=300, loading=lazy }
+![!LP2 Page 57](./../../assets/images/LP/LP2_57.jpg "LP2 Page 57"){ width=300, loading=lazy }
