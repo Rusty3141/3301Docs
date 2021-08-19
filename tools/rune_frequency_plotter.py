@@ -88,14 +88,9 @@ def write_section_plots(runebet):
             actualAxes.grid(True, which="both", alpha=0.4)
 
             plot_frequencies(actualAxes, actualFrequencies,
-                             linewidth=2, label="Frequencies for this section")
+                             linewidth=2, label="Frequencies for this section", zorder=3)
             scatter_frequencies(
-                actualAxes, actualFrequencies, linewidth=2)
-
-            flatY = sum(actualFrequencies.values()) / \
-                len(actualFrequencies.values())
-            idealAxes.axhline(y=flatY, linestyle="--", linewidth=2, color="orange",
-                              label=f"Uniformly distributed text ($y={round(flatY, 1)})$", alpha=0.5)
+                actualAxes, actualFrequencies, linewidth=2, zorder=3)
 
             naturalFrequencies = {'ᚠ': 4812, 'ᚢ': 7765, 'ᚦ': 7725, 'ᚩ': 14961, 'ᚱ': 11598, 'ᚳ': 6525, 'ᚷ': 2930, 'ᚹ': 5539, 'ᚻ': 5795, 'ᚾ': 12774, 'ᛁ': 12473, 'ᛄ': 0, 'ᛇ': 31, 'ᛈ': 3774,
                                   'ᛉ': 231, 'ᛋ': 13515, 'ᛏ': 13891, 'ᛒ': 2901, 'ᛖ': 25366, 'ᛗ': 5535, 'ᛚ': 8730, 'ᛝ': 2388, 'ᛟ': 17, 'ᛞ': 10340, 'ᚪ': 15869, 'ᚫ': 10, 'ᚣ': 3919, 'ᛡ': 657, 'ᛠ': 1829}
@@ -106,12 +101,20 @@ def write_section_plots(runebet):
             naturalFrequencies = {
                 k: v / normalisationConstant for k, v in naturalFrequencies.items()}
 
-            plot_frequencies(idealAxes, naturalFrequencies, label="Natural frequencies for runic plaintext",
-                             linestyle="--", linewidth=2, color="green")
-            scatter_frequencies(idealAxes, naturalFrequencies,
-                                color="green")
+            plot_frequencies(actualAxes, naturalFrequencies, label="Natural frequencies for runic plaintext",
+                             linestyle="--", linewidth=2, color="#7fbf7f", zorder=2)
+            actualAxes.scatter(range(len(naturalFrequencies.keys())), sorted(naturalFrequencies.values(), reverse=True),
+                               color="#7fbf7f", zorder=2)
+
+            # Show secondary axis ticks.
+            scatter_frequencies(idealAxes, naturalFrequencies, alpha=0)
+
+            flatY = sum(actualFrequencies.values()) / \
+                len(actualFrequencies.values())
+            actualAxes.axhline(y=flatY, linestyle="--", linewidth=2, color="orange",
+                               label=f"Uniformly distributed text ($y={round(flatY, 1)})$", alpha=0.5, zorder=1)
+
             idealAxes.xaxis.tick_bottom()
-            idealAxes.tick_params(axis="x", colors="green")
 
             # Shift ticks downwards
             idealAxes.tick_params(axis="x", direction="out", pad=30)
@@ -119,6 +122,7 @@ def write_section_plots(runebet):
             for label in idealAxes.get_xticklabels():
                 label.set_fontproperties(
                     fm.FontProperties(family="Segoe UI Historic", size=12))
+                label.set_color("green")
             for label in actualAxes.get_xticklabels():
                 label.set_fontproperties(
                     fm.FontProperties(family="Segoe UI Historic"))
