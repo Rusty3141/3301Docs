@@ -16,13 +16,18 @@ def analyse(runebet, frequencyData, stringData):
             frequencyData[char] += 1
 
 
+def sorted_dict_by_frequency(dict, reversedSort=True):
+    return {k: v for k, v in sorted(dict.items(),
+                                    key=lambda x: dict[x[0]], reverse=reversedSort)}
+
+
 def analyse_gutenberg_runic(path, runebet):
     with open(path, encoding="utf8") as book:
         stringData = "".join(
             [x for x in book.readlines() if not(x.startswith('#'))])
         frequencyData = {}
         analyse(runebet, frequencyData, stringData)
-        print(frequencyData)
+        print(sorted_dict_by_frequency(frequencyData))
 
 
 def plot_frequencies(plt, dict, **extraArgs):
@@ -35,7 +40,8 @@ def scatter_frequencies(plt, dict, **extraArgs):
 
 
 def write_section_plots(runebet):
-    partsDirectory = os.path.join(os.path.dirname(__file__), "../raw-data/")
+    partsDirectoryPath = os.path.join(
+        os.path.dirname(__file__), "../raw-data/")
 
     plt.rcParams["figure.figsize"] = [16, 9]
     plt.rcParams["figure.dpi"] = 240
@@ -57,40 +63,41 @@ def write_section_plots(runebet):
         fname="C:/Windows/Fonts/seguihis.ttf", name="Segoe UI Historic"))
 
     raw_data = {}
-    parts = next(os.walk(partsDirectory))[1]
+    parts = next(os.walk(partsDirectoryPath))[1]
     for part in parts:
         raw_data[part] = {}
 
-        for i, sectionPath in enumerate(os.listdir(os.path.join(partsDirectory, part))):
-            with open(os.path.join(partsDirectory, part, sectionPath), encoding='utf8') as sectionFile:
+        for i, section in enumerate(os.listdir(os.path.join(partsDirectoryPath, part))):
+            with open(os.path.join(partsDirectoryPath, part, section), encoding='utf8') as sectionFile:
                 stringData = "".join(sectionFile.readlines())
                 actualFrequencies = {}
                 analyse(runebet, actualFrequencies, stringData)
 
-                raw_data[part][f"section-{sectionPath}"] = actualFrequencies
+                raw_data[part][f"section-{section}"] = sorted_dict_by_frequency(
+                    actualFrequencies)
 
             fig = plt.figure()
 
-            actualAxes = fig.add_subplot(111, label="1")
-            idealAxes = fig.add_subplot(
-                111, label="2", frame_on=False, sharey=actualAxes)
+            axes = fig.add_subplot(111, label="1")
+            helperAxes = fig.add_subplot(
+                111, label="2", frame_on=False, sharey=axes)
 
             # Force integral values on y-axis ticks.
-            actualAxes.yaxis.get_major_locator().set_params(integer=True)
+            axes.yaxis.get_major_locator().set_params(integer=True)
 
-            idealAxes.set_axisbelow(True)
-            actualAxes.set_axisbelow(True)
+            helperAxes.set_axisbelow(True)
+            axes.set_axisbelow(True)
 
-            actualAxes.xaxis.tick_bottom()
-            actualAxes.tick_params(axis="x")
+            axes.xaxis.tick_bottom()
+            axes.tick_params(axis="x")
 
-            actualAxes.yaxis.set_minor_locator(AutoMinorLocator())
-            actualAxes.grid(True, which="both", alpha=0.4)
+            axes.yaxis.set_minor_locator(AutoMinorLocator())
+            axes.grid(True, which="both", alpha=0.4)
 
-            plot_frequencies(actualAxes, actualFrequencies,
+            plot_frequencies(axes, actualFrequencies,
                              linewidth=2, label="Frequencies for this section", zorder=3)
             scatter_frequencies(
-                actualAxes, actualFrequencies, linewidth=2, zorder=3)
+                axes, actualFrequencies, linewidth=2, zorder=3)
 
             naturalFrequencies = {'ᚠ': 4812, 'ᚢ': 7765, 'ᚦ': 7725, 'ᚩ': 14961, 'ᚱ': 11598, 'ᚳ': 6525, 'ᚷ': 2930, 'ᚹ': 5539, 'ᚻ': 5795, 'ᚾ': 12774, 'ᛁ': 12473, 'ᛄ': 0, 'ᛇ': 31, 'ᛈ': 3774,
                                   'ᛉ': 231, 'ᛋ': 13515, 'ᛏ': 13891, 'ᛒ': 2901, 'ᛖ': 25366, 'ᛗ': 5535, 'ᛚ': 8730, 'ᛝ': 2388, 'ᛟ': 17, 'ᛞ': 10340, 'ᚪ': 15869, 'ᚫ': 10, 'ᚣ': 3919, 'ᛡ': 657, 'ᛠ': 1829}
@@ -101,34 +108,34 @@ def write_section_plots(runebet):
             naturalFrequencies = {
                 k: v / normalisationConstant for k, v in naturalFrequencies.items()}
 
-            plot_frequencies(actualAxes, naturalFrequencies, label="Natural frequencies for runic plaintext",
+            plot_frequencies(axes, naturalFrequencies, label="Natural frequencies for runic plaintext",
                              linestyle="--", linewidth=2, color="#7fbf7f", zorder=2)
-            actualAxes.scatter(range(len(naturalFrequencies.keys())), sorted(naturalFrequencies.values(), reverse=True),
-                               color="#7fbf7f", zorder=2)
+            axes.scatter(range(len(naturalFrequencies.keys())), sorted(naturalFrequencies.values(), reverse=True),
+                         color="#7fbf7f", zorder=2)
 
             # Show secondary axis ticks.
-            scatter_frequencies(idealAxes, naturalFrequencies, alpha=0)
+            scatter_frequencies(helperAxes, naturalFrequencies, alpha=0)
 
             flatY = sum(actualFrequencies.values()) / \
                 len(actualFrequencies.values())
-            actualAxes.axhline(y=flatY, linestyle="--", linewidth=2, color="orange",
-                               label=f"Uniformly distributed text ($y={round(flatY, 1)})$", alpha=0.5, zorder=1)
+            axes.axhline(y=flatY, linestyle="--", linewidth=2, color="orange",
+                         label=f"Uniformly distributed text ($y={round(flatY, 1)})$", alpha=0.5, zorder=1)
 
-            idealAxes.xaxis.tick_bottom()
+            helperAxes.xaxis.tick_bottom()
 
             # Shift ticks downwards
-            idealAxes.tick_params(axis="x", direction="out", pad=30)
+            helperAxes.tick_params(axis="x", direction="out", pad=30)
 
-            for label in idealAxes.get_xticklabels():
+            for label in helperAxes.get_xticklabels():
                 label.set_fontproperties(
                     fm.FontProperties(family="Segoe UI Historic", size=12))
                 label.set_color("green")
-            for label in actualAxes.get_xticklabels():
+            for label in axes.get_xticklabels():
                 label.set_fontproperties(
                     fm.FontProperties(family="Segoe UI Historic"))
 
             plt.gca().set_title(
-                f"Rune frequencies in section {part}_{sectionPath.split('.')[0].zfill(2)}.txt, sorted from most to least common", pad=22)
+                f"Rune frequencies in section {part}_{section.split('.')[0].zfill(2)}.txt, sorted from most to least common", pad=22)
             plt.xlabel("Rune character")
             plt.ylabel("Frequency")
             plt.tight_layout()
@@ -136,8 +143,8 @@ def write_section_plots(runebet):
             plt.figlegend(bbox_to_anchor=[0.98, 0.9], loc="upper right")
 
             plt.savefig(os.path.join(os.path.dirname(
-                __file__), f"../docs/assets/images/LP/frequency-data/{part}/relative-rune-frequencies-section-{sectionPath.split('.')[0].zfill(2)}.png"))
-            print(f"{i + 1}/{sum(len(os.listdir(os.path.join(partsDirectory, part))) for part in parts)} plots made and saved.", flush=True)
+                __file__), f"../docs/assets/images/LP/frequency-data/{part}/relative-rune-frequencies-section-{section.split('.')[0].zfill(2)}.png"))
+            print(f"{i + 1}/{sum(len(os.listdir(os.path.join(partsDirectoryPath, part))) for part in parts)} plots made and saved.", flush=True)
             plt.close()
 
     raw_path = os.path.join(os.path.dirname(
