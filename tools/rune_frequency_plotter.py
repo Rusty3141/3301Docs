@@ -1,10 +1,19 @@
+import getopt
+import json
 import os
 import sys
-import getopt
 
 import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
-from matplotlib.ticker import AutoMinorLocator
+from matplotlib.ticker import (AutoMinorLocator, FixedLocator)
+
+
+def analyse(runebet, frequencyData, stringData):
+    for rune in runebet:
+        frequencyData[rune] = 0
+    for char in stringData:
+        if char in frequencyData:
+            frequencyData[char] += 1
 
 
 def analyse_gutenberg_runic(path, runebet):
@@ -54,9 +63,11 @@ def write_section_plots(runebet):
                 stringData = "".join(sectionFile.readlines())
                 actualFrequencies = {}
                 analyse(runebet, actualFrequencies, stringData)
-
-            # Force integral values on y-axis ticks.
-            plt.figure().gca().yaxis.get_major_locator().set_params(integer=True)
+                raw_path = os.path.join(os.path.dirname(
+                    __file__), f"../docs/assets/images/LP/frequency-data/{part}/raw_data/relative-rune-frequencies-section-{sectionPath.split('.')[0].zfill(2)}.json")
+                with open(raw_path, "w", encoding="utf8") as jsonWriteStream:
+                    json.dump(actualFrequencies, jsonWriteStream,
+                              ensure_ascii=False, indent=4)
 
             fig = plt.figure()
 
@@ -64,21 +75,22 @@ def write_section_plots(runebet):
             idealAxes = fig.add_subplot(
                 111, label="2", frame_on=False, sharey=actualAxes)
 
+            # Force integral values on y-axis ticks.
+            actualAxes.yaxis.get_major_locator().set_params(integer=True)
+
             idealAxes.set_axisbelow(True)
             actualAxes.set_axisbelow(True)
 
             actualAxes.xaxis.tick_bottom()
             actualAxes.tick_params(axis="x")
-            actualAxes.set_xticklabels(sorted(actualFrequencies.keys(
-            ), key=lambda x: actualFrequencies[x]), fontfamily="Segoe UI Historic")
 
             actualAxes.yaxis.set_minor_locator(AutoMinorLocator())
             actualAxes.grid(True, which="both", alpha=0.4)
 
             plot_frequencies(actualAxes, actualFrequencies,
-                             linewidth=2, label="Frequencies for this section", zorder=1)
+                             linewidth=2, label="Frequencies for this section")
             scatter_frequencies(
-                actualAxes, actualFrequencies, linewidth=2, zorder=1)
+                actualAxes, actualFrequencies, linewidth=2)
 
             flatY = sum(actualFrequencies.values()) / \
                 len(actualFrequencies.values())
@@ -98,12 +110,17 @@ def write_section_plots(runebet):
                              linestyle="--", linewidth=2, color="green")
             scatter_frequencies(idealAxes, naturalFrequencies, color="green")
             idealAxes.xaxis.tick_bottom()
-            idealAxes.tick_params(axis="x", colors="green", labelsize=12)
+            idealAxes.tick_params(axis="x", colors="green")
 
             # Shift ticks downwards
             idealAxes.tick_params(axis="x", direction="in", pad=30)
 
-            plt.xticks(fontname="Segoe UI Historic")
+            for label in idealAxes.get_xticklabels():
+                label.set_fontproperties(
+                    fm.FontProperties(family="Segoe UI Historic", size=12))
+            for label in actualAxes.get_xticklabels():
+                label.set_fontproperties(
+                    fm.FontProperties(family="Segoe UI Historic"))
 
             plt.gca().set_title(
                 f"Rune frequencies in section {part}_{sectionPath.split('.')[0].zfill(2)}.txt, sorted from most to least common", pad=22)
@@ -114,17 +131,9 @@ def write_section_plots(runebet):
             plt.figlegend(bbox_to_anchor=[0.98, 0.9], loc="upper right")
 
             plt.savefig(os.path.join(os.path.dirname(
-                __file__), f"../docs/assets/images/LP/frequency-data/{part}/relative-rune-frequencies-{sectionPath.split('.')[0].zfill(2)}.png"))
+                __file__), f"../docs/assets/images/LP/frequency-data/{part}/relative-rune-frequencies-section-{sectionPath.split('.')[0].zfill(2)}.png"))
             print(f"{i + 1}/{sum(len(os.listdir(os.path.join(partsDirectory, part))) for part in parts)} plots made and saved.", flush=True)
             plt.close()
-
-
-def analyse(runebet, frequencyData, stringData):
-    for rune in runebet:
-        frequencyData[rune] = 0
-    for char in stringData:
-        if char in frequencyData:
-            frequencyData[char] += 1
 
 
 def print_help():
