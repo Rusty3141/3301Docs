@@ -17,3 +17,4 @@
 ![!Frequency Data for LP2 Section 14](./../../assets/images/LP/frequency-data/LP2/relative-rune-frequencies-section-14.png){ width=450, loading=lazy }
 ![!Frequency Data for LP2 Section 15](./../../assets/images/LP/frequency-data/LP2/relative-rune-frequencies-section-15.png){ width=450, loading=lazy }
 
+The raw data can be found [here](./../../assets/images/LP/frequency-data/raw-data.json).

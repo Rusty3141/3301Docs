@@ -56,18 +56,18 @@ def write_section_plots(runebet):
     fm.fontManager.ttflist.append(fm.FontEntry(
         fname="C:/Windows/Fonts/seguihis.ttf", name="Segoe UI Historic"))
 
+    raw_data = {}
     parts = next(os.walk(partsDirectory))[1]
     for part in parts:
+        raw_data[part] = {}
+
         for i, sectionPath in enumerate(os.listdir(os.path.join(partsDirectory, part))):
             with open(os.path.join(partsDirectory, part, sectionPath), encoding='utf8') as sectionFile:
                 stringData = "".join(sectionFile.readlines())
                 actualFrequencies = {}
                 analyse(runebet, actualFrequencies, stringData)
-                raw_path = os.path.join(os.path.dirname(
-                    __file__), f"../docs/assets/images/LP/frequency-data/{part}/raw-data/relative-rune-frequencies-section-{sectionPath.split('.')[0].zfill(2)}.json")
-                with open(raw_path, "w", encoding="utf8") as jsonWriteStream:
-                    json.dump(actualFrequencies, jsonWriteStream,
-                              ensure_ascii=False, indent=4)
+
+                raw_data[part][f"section-{sectionPath}"] = actualFrequencies
 
             fig = plt.figure()
 
@@ -139,6 +139,12 @@ def write_section_plots(runebet):
                 __file__), f"../docs/assets/images/LP/frequency-data/{part}/relative-rune-frequencies-section-{sectionPath.split('.')[0].zfill(2)}.png"))
             print(f"{i + 1}/{sum(len(os.listdir(os.path.join(partsDirectory, part))) for part in parts)} plots made and saved.", flush=True)
             plt.close()
+
+    raw_path = os.path.join(os.path.dirname(
+        __file__), f"../docs/assets/images/LP/frequency-data/raw-data.json")
+    with open(raw_path, "w", encoding="utf8") as jsonWriteStream:
+        json.dump(raw_data, jsonWriteStream,
+                  ensure_ascii=False, indent=2)
 
 
 def print_help():
