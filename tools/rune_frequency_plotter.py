@@ -64,7 +64,7 @@ def write_section_plots(runebet):
                 actualFrequencies = {}
                 analyse(runebet, actualFrequencies, stringData)
                 raw_path = os.path.join(os.path.dirname(
-                    __file__), f"../docs/assets/images/LP/frequency-data/{part}/raw_data/relative-rune-frequencies-section-{sectionPath.split('.')[0].zfill(2)}.json")
+                    __file__), f"../docs/assets/images/LP/frequency-data/{part}/raw-data/relative-rune-frequencies-section-{sectionPath.split('.')[0].zfill(2)}.json")
                 with open(raw_path, "w", encoding="utf8") as jsonWriteStream:
                     json.dump(actualFrequencies, jsonWriteStream,
                               ensure_ascii=False, indent=4)
