@@ -1,7 +1,8 @@
 site_name: 3301Docs
-repo_url: "https://github.com/Rusty3141/3301Docs"
+site_url: https://rusty3141.github.io/3301Docs/
+repo_url: https://github.com/Rusty3141/3301Docs
 repo_name: Rusty3141/3301Docs
-edit_uri: "https://github.com/Rusty3141/3301Docs/edit/main/docs"
+edit_uri: https://github.com/Rusty3141/3301Docs/edit/main/docs
 theme:
   features:
     - navigation.instant
