@@ -38,7 +38,7 @@ def write_section_plots(runebet):
     partsDirectory = os.path.join(os.path.dirname(__file__), "../raw-data/")
 
     plt.rcParams["figure.figsize"] = [16, 9]
-    plt.rcParams["figure.dpi"] = 160
+    plt.rcParams["figure.dpi"] = 240
     plt.rcParams["font.size"] = 20
     plt.rcParams["font.family"] = "Computer Modern Serif"
     plt.rcParams["mathtext.fontset"] = "custom"
@@ -108,12 +108,13 @@ def write_section_plots(runebet):
 
             plot_frequencies(idealAxes, naturalFrequencies, label="Natural frequencies for runic plaintext",
                              linestyle="--", linewidth=2, color="green")
-            scatter_frequencies(idealAxes, naturalFrequencies, color="green")
+            scatter_frequencies(idealAxes, naturalFrequencies,
+                                color="green")
             idealAxes.xaxis.tick_bottom()
             idealAxes.tick_params(axis="x", colors="green")
 
             # Shift ticks downwards
-            idealAxes.tick_params(axis="x", direction="in", pad=30)
+            idealAxes.tick_params(axis="x", direction="out", pad=30)
 
             for label in idealAxes.get_xticklabels():
                 label.set_fontproperties(
@@ -138,8 +139,8 @@ def write_section_plots(runebet):
 
 def print_help():
     print("Usage:")
-    print(r"    rune_frequency_plotter.py (-h|--help|-g <gutenberg runic file path>|--gutenberg <gutenberg runic file path>)?")
-    print("    Entering gutenberg mode and passing a file path analyses the text to find a \"natural\" distribution.")
+    print(r"rune_frequency_plotter.py (-h|--help|-g <gutenberg runic file path>|--gutenberg <gutenberg runic file path>)?")
+    print("Entering Gutenberg mode and passing a file path analyses the text to find a \"natural\" distribution.")
 
 
 def main(argv):
