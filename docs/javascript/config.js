@@ -12,5 +12,8 @@ window.MathJax = {
 };
 
 document$.subscribe(() => {
-  MathJax.typesetPromise()
+  MathJax.typesetPromise();
+  const nodes = document.querySelectorAll('.timeago');
+  const locale = nodes[0].getAttribute('locale');
+  timeago.render(nodes, locale);
 });

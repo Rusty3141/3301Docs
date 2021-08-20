@@ -33,7 +33,7 @@
         {% endif %}
         {% if git_info %}
         {%- for author in git_info.get('page_authors') -%}
-        <span style="color: var(--md-primary-fg-color) !important;">{{ author.name }}</span>{{ ", " if not
+        <span style="opacity: 0.7;">{{ author.name }}</span>{{ ", " if not
         loop.last
         else "" }}
         {%- endfor -%}
