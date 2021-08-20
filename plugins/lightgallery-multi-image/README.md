@@ -1,5 +1,7 @@
 # Lightgallery markdown Extension
 
+Adapted from [here](https://github.com/g-provost/lightgallery-markdown).
+
 Markdown extension to wrap images in a lightbox.
 
 Will only wrap images by adding **"!"** right after the opening **"["** bracket of the image.
