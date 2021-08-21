@@ -18,6 +18,9 @@ jobs:
       - run: pip install mkdocs-material
       - run: pip install mkdocs-minify-plugin
       - run: pip install mkdocs-git-authors-plugin
+      - name: Generate thumbnails for large images
+        working-directory: ./tools
+        run: python generate_thumbnails.py
       - name: Install custom lightGallery version
         working-directory: ./plugins/lightgallery-multi-image
         run: python setup.py install

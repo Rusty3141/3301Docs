@@ -8,15 +8,15 @@ with open(path.join(root_directory, 'README.md'), encoding='utf-8') as readme_fi
 
 # Package Definition
 setup(
-    name='lightgallery',
+    name='lightgallery-markdown-extended',
     version='0.5',
     author='Gauthier Provost',
     author_email='gauthier@kobol.io',
     description='Markdown extension to wrap images in lightbox/lightgallery',
     long_description=readme_content,
     long_description_content_type='text/markdown; charset=UTF-8; variant=GFM',
-    py_modules=['lightgallery'],
-    install_requires = ['markdown>=3.0'],
+    py_modules=['lightgallery-markdown-extended'],
+    install_requires=['markdown>=3.0'],
     classifiers=['Topic :: Text Processing :: Markup :: HTML'],
     license='MIT License',
     url='https://github.com/g-provost/lightgallery-markdown',

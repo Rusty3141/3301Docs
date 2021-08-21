@@ -40,7 +40,7 @@ def scatter_frequencies(plt, dict, **extraArgs):
 
 
 def write_section_plots(runebet):
-    partsDirectoryPath = os.path.join(
+    partsDirectoryContainerPath = os.path.join(
         os.path.dirname(__file__), "../raw-data/")
 
     plt.rcParams["figure.figsize"] = [16, 9]
@@ -63,12 +63,12 @@ def write_section_plots(runebet):
         fname="C:/Windows/Fonts/seguihis.ttf", name="Segoe UI Historic"))
 
     raw_data = {}
-    parts = next(os.walk(partsDirectoryPath))[1]
+    parts = next(os.walk(partsDirectoryContainerPath))[1]
     for part in parts:
         raw_data[part] = {}
 
-        for i, section in enumerate(os.listdir(os.path.join(partsDirectoryPath, part))):
-            with open(os.path.join(partsDirectoryPath, part, section), encoding='utf8') as sectionFile:
+        for i, section in enumerate(os.listdir(os.path.join(partsDirectoryContainerPath, part))):
+            with open(os.path.join(partsDirectoryContainerPath, part, section), encoding='utf8') as sectionFile:
                 stringData = "".join(sectionFile.readlines())
                 actualFrequencies = {}
                 analyse(runebet, actualFrequencies, stringData)
@@ -144,7 +144,7 @@ def write_section_plots(runebet):
 
             plt.savefig(os.path.join(os.path.dirname(
                 __file__), f"../docs/assets/images/LP/frequency-data/{part}/relative-rune-frequencies-section-{section.split('.')[0].zfill(2)}.png"))
-            print(f"{i + 1}/{sum(len(os.listdir(os.path.join(partsDirectoryPath, part))) for part in parts)} plots made and saved.", flush=True)
+            print(f"{i + 1}/{sum(len(os.listdir(os.path.join(partsDirectoryContainerPath, part))) for part in parts)} plots made and saved.", flush=True)
             plt.close()
 
     raw_path = os.path.join(os.path.dirname(
