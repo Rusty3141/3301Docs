@@ -9,6 +9,7 @@ class ImagesTreeprocessor(Treeprocessor):
     def __init__(self, config, md):
         Treeprocessor.__init__(self, md)
         self.re = re.compile(r'^!.*')
+        self.captionre = re.compile(r'^caption!.*')
         self.config = config
 
     def run(self, root):
@@ -19,30 +20,33 @@ class ImagesTreeprocessor(Treeprocessor):
             images = root.getiterator("img")
         for image in images:
             desc = image.attrib["alt"]
-            if self.re.match(desc):
-                desc = desc.lstrip("!")
+            if self.re.match(desc) or self.captionre.match(desc):
                 new_node = etree.Element('a')
                 new_node.set("class", "lightgallery-item")
                 new_node.set("href", image.attrib["src"])
-                image.set("alt", desc)
                 image.set("src", "{0}{2}{1}".format(
                     *os.path.splitext(image.attrib["src"]), ".thumbnail"))
                 parent = parent_map[image]
                 ix = list(parent).index(image)
 
-                if self.config["show_description_in_lightgallery"]:
-                    new_node.set("data-sub-html", desc)
-
-                parent.insert(ix, new_node)
-                new_node.append(image)
-                parent.remove(image)
-
-                if self.config["show_description_as_inline_caption"]:
+                if self.captionre.match(desc) or self.config["show_description_as_inline_caption"]:
+                    desc = desc.lstrip("caption!")
                     inline_caption_node = etree.Element('p')
                     inline_caption_node.set(
                         "class", self.config["custom_inline_caption_css_class"])
                     inline_caption_node.text = desc
                     parent.insert(ix + 1, inline_caption_node)
+                else:
+                    desc = desc.lstrip("!")
+
+                if self.config["show_description_in_lightgallery"]:
+                    new_node.set("data-sub-html", desc)
+
+                image.set("alt", desc)
+
+                parent.insert(ix, new_node)
+                new_node.append(image)
+                parent.remove(image)
 
 
 class LightGalleryExtension(Extension):
