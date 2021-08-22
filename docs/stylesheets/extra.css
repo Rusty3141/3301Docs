@@ -35,22 +35,22 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .lightgallery-grid-container a {
-  width: calc(100% / var(--start-columns));
-  padding: 5px;
-  box-sizing: border-box;
+  width: calc(100% / var(--start-columns) - 10px);
+  margin: 5px;
 }
 
 .lightgallery-grid-container a img {
   display: block;
+  width: 100%;
 }
 
 @media only screen and (max-width: 800px) {
   .lightgallery-grid-container a {
-    width: calc(100% / 2);
+    width: calc(100% / 2 - 10px);
   }
 }
 
