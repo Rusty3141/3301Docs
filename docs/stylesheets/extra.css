@@ -30,3 +30,32 @@
   -webkit-filter: brightness(90%);
   filter: brightness(90%)
 }
+
+.lightgallery-grid-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.lightgallery-grid-container a {
+  width: calc(100% / var(--start-columns));
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+.lightgallery-grid-container a img {
+  display: block;
+}
+
+@media only screen and (max-width: 800px) {
+  .lightgallery-grid-container a {
+    width: calc(100% / 2);
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .lightgallery-grid-container a {
+    width: 100%;
+  }
+}

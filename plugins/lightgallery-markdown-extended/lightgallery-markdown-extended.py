@@ -1,6 +1,7 @@
 from markdown import Extension
 from markdown.treeprocessors import Treeprocessor
 from markdown.util import etree
+
 import os
 import re
 
@@ -11,6 +12,7 @@ class ImagesTreeprocessor(Treeprocessor):
         self.re = re.compile(r'^!.*')
         self.captionre = re.compile(r'^caption!.*')
         self.config = config
+        self.columns = 3
 
     def run(self, root):
         parent_map = {c: p for p in root.iter() for c in p}
@@ -18,9 +20,15 @@ class ImagesTreeprocessor(Treeprocessor):
             images = root.iter("img")
         except AttributeError:
             images = root.getiterator("img")
-        for image in images:
+        for i, image in enumerate(images):
             desc = image.attrib["alt"]
             if self.re.match(desc) or self.captionre.match(desc):
+                if i == 0:
+                    try:
+                        self.columns = image.attrib["columns"]
+                    except KeyError:
+                        pass
+
                 new_node = etree.Element('a')
                 new_node.set("class", "lightgallery-item")
                 new_node.set("href", image.attrib["src"])
@@ -29,22 +37,25 @@ class ImagesTreeprocessor(Treeprocessor):
                 parent = parent_map[image]
                 ix = list(parent).index(image)
 
-                if self.captionre.match(desc) or self.config["show_description_as_inline_caption"]:
+                if self.captionre.match(desc) or self.config["show_description_in_lightgallery"]:
                     desc = desc.lstrip("caption!")
+                    new_node.set("data-sub-html", desc)
+                else:
+                    desc = desc.lstrip("!")
+
+                if self.config["show_description_as_inline_caption"]:
                     inline_caption_node = etree.Element('p')
                     inline_caption_node.set(
                         "class", self.config["custom_inline_caption_css_class"])
                     inline_caption_node.text = desc
                     parent.insert(ix + 1, inline_caption_node)
-                else:
-                    desc = desc.lstrip("!")
-
-                if self.config["show_description_in_lightgallery"]:
-                    new_node.set("data-sub-html", desc)
 
                 image.set("alt", desc)
 
                 parent.insert(ix, new_node)
+                parent.set("class", "lightgallery-grid-container")
+
+                parent.set("style", f"--start-columns: {self.columns};")
                 new_node.append(image)
                 parent.remove(image)
 
