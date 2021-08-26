@@ -6,7 +6,7 @@ from PIL import Image
 
 def main():
     resizeCoefficient = 0.2
-    resizeWidthThreshold = 2
+    resizeWidthThreshold = 1000
 
     imageContainerDirectory = os.path.join(
         os.path.dirname(__file__), "../docs/assets/images/LP/")
