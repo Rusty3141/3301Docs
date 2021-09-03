@@ -1,5 +1,8 @@
 plugins/lightgallery-markdown-extended/build
 plugins/lightgallery-markdown-extended/dist
 plugins/lightgallery-markdown-extended/lightgallery_markdown_extended.egg-info
+plugins/title-casing/build
+plugins/title-casing/dist
+plugins/title-casing/mkdocs_title_casing_plugin.egg-info
 
 docs/assets/images/**/*.thumbnail.*

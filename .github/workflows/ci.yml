@@ -26,4 +26,7 @@ jobs:
       - name: Install custom lightGallery version
         working-directory: ./plugins/lightgallery-markdown-extended
         run: python setup.py install
+      - name: Install custom title casing plugin
+        working-directory: ./plugins/title-casing
+        run: python setup.py install
       - run: mkdocs gh-deploy --force

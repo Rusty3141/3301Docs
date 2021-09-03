@@ -61,6 +61,7 @@ plugins:
       minify_js: true
       htmlmin_opts:
         remove_comments: true
+  - title-casing
 markdown_extensions:
   - abbr
   - admonition
