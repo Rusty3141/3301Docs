@@ -18,6 +18,7 @@ jobs:
       - run: pip install mkdocs-material
       - run: pip install mkdocs-minify-plugin
       - run: pip install mkdocs-git-authors-plugin
+      - run: pip install mkdocs-title-casing-plugin
       - run: pip install filetype
       - run: pip install pillow
       - run: pip install titlecase
@@ -26,8 +27,5 @@ jobs:
         run: python generate_thumbnails.py
       - name: Install custom lightGallery version
         working-directory: ./plugins/lightgallery-markdown-extended
-        run: python setup.py install
-      - name: Install custom title casing plugin
-        working-directory: ./plugins/title-casing
         run: python setup.py install
       - run: mkdocs gh-deploy --force
